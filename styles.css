@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f0f8ff;
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+/* Part 1: CSS Animations */
+/* Button hover effect - now more visible */
+.animated-btn {
+  background-color: #e91e63;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.5s ease, background-color 0.5s ease;
+}
+
+.animated-btn:hover {
+  transform: scale(1.3) rotate(10deg);
+  background-color: #ff4081;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* Continuous fade & slide */
+.fade-slide-box {
+  margin: 20px auto;
+  width: 250px;
+  height: 100px;
+  background-color: #2196f3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: fadeSlide 4s infinite alternate;
+}
+
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateX(-50px); }
+  50% { opacity: 0.5; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Triggered pulse animation */
+.pulse-box {
+  width: 150px;
+  height: 150px;
+  background-color: #ff9800;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pulse-box.animate {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+/* Part 3: Interactive Box */
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #4caf50;
+  margin: 20px auto;
+  transition: transform 0.5s ease, background-color 0.5s ease;
+}
+
+.box.animate {
+  transform: rotate(180deg) scale(1.5);
+  background-color: #ff5722;
+}
+
+/* Card flip effect */
+.card {
+  width: 150px;
+  height: 200px;
+  margin: 20px auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.card-front {
+  background-color: #3f51b5;
+}
+
+.card-back {
+  background-color: #009688;
+  transform: rotateY(180deg);
+}
+
+.card.flip .card-front {
+  transform: rotateY(180deg);
+}
+
+.card.flip .card-back {
+  transform: rotateY(0deg);
+}
+
+.card, .card-front, .card-back {
+  transition: transform 0.8s;
+}
